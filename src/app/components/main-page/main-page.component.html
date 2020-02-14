@@ -1,0 +1,60 @@
+
+<img #webLogo src="/assets/images/coupons.png" alt="">
+<br>
+
+<div ngClass="marque">
+  <marquee scrollamount="7"   direction="left"><img src="/assets/images/plane.png">
+    <img src="/assets/images/coupons.png"> <img src="/assets/images/coupons.png"><img src="/assets/images/coupons.png"></marquee>
+  
+</div>
+
+
+
+<form >
+  <legend>Coupon List</legend>  
+
+   
+
+<div class="container">
+        <div class="row col-md-12 col-md-offset-2 custyle">
+        <table class="table table-striped custab">
+        <thead>
+            <tr>
+                <th>Coupon Id</th>
+                <th>Company-Id</th>
+                <th>Category-Id</th>                 
+                <th>Title</th>
+                <th>description</th>
+                <th>start_date</th>
+                <th>end_date</th>
+                <th>amount</th>
+                <th>price</th>
+                <th>image</th>
+            </tr>
+        </thead>
+        <tbody>
+         
+    
+          <tr *ngFor=" let c of couponList ">
+                <td>{{c.id}} </td>
+                <td>{{c.companyId}} </td>
+                <td>{{c.categoryId}}</td>
+                <td>{{c.title}} </td>
+                <td>{{c.description}} </td>
+                <td>{{c.start_date}} </td>
+                <td>{{c.end_date}}</td>
+                <td>{{c.amount}} </td>
+                <td>{{c.price}} </td>
+                <td>{{c.image}} </td>
+                
+                
+                  <button type="button" class="btn btn-success" ngClass="btnS">buy now</button>
+                 
+                
+                </tr>
+        </tbody>
+        </table>
+        </div>
+    </div>
+</form>
+

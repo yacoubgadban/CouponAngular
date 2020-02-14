@@ -1,0 +1,102 @@
+
+img{
+
+  
+
+  height: 400px;
+  width: 600px;
+margin-bottom: 5%;
+  position: relative;
+  
+  left: 50%;
+
+  transform: translateX(-50%);
+
+}
+
+
+
+
+.btnS{
+ margin-top: 1%;
+  position: relative;
+  
+  text-align: center;
+  padding: 12px;
+
+  margin: 2px;
+  font-family: 'Raleway', sans-serif;
+
+}
+
+
+
+
+
+button{
+  font-family: 'Raleway', sans-serif;
+}
+
+
+
+
+.title{
+
+  font-family: 'Raleway', sans-serif;
+  height: 10%;
+position: relative;
+text-align: center;
+top:20px;
+color: black;
+font-size:xx-large;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

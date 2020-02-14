@@ -1,0 +1,36 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="/assets/images/user.png" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form>
+      <input type="text" id="login" class="fadeIn second" [(ngModel)]="loginResult.email" name="email" placeholder=" Email">
+      <input type="password" id="password" class="fadeIn third" [(ngModel)]="loginResult.password" name="password" placeholder="Password">
+    <br>
+     
+    <select [(ngModel)]="loginResult.type" name="type" >
+        
+          
+          <option  selected disabled >Select Type</option>
+          <option >Admin</option>
+          <option >Company</option>
+          <option >Client</option>      
+    
+    
+          
+        
+       
+      </select>
+      
+      <br><br>
+      
+    </form>
+    <input type="submit" value="Login" class="fadeIn fourth" (click)="AdminLog()">
+   
+  </div>
+</div>

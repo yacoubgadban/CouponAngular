@@ -1,0 +1,47 @@
+
+<div ngClass="btnS" >
+  <button class="btn btn-primary" ngClass="btnS" [routerLink]="['/company/AddCoupon']" routerLinkActive="router-link-active">New Coupon</button>
+  <button class="btn btn-info" ngClass="btnS" [routerLink]="['/company/CouponList']" routerLinkActive="router-link-active"   >Coupons List</button>
+  <button class="btn btn-danger" ngClass="btnS" [routerLink]="['/company/DeleteCoupon']" routerLinkActive="router-link-active"   >Delete Coupon</button>
+  <button class="btn btn-success" ngClass="btnS" [routerLink]="['/company/UpdateCoupon']" routerLinkActive="router-link-active"   >Update Coupon</button>
+  <img src="/assets/images/home.jpg" ngClass="homeBtn"  [routerLink]="['/company']" routerLinkActive="router-link-active" >
+
+</div>
+
+
+<div ngClass="add" #addNewc>
+  <legend>Edit Coupon</legend>
+  <div class="form-group">
+  <form #formInfo="ngForm" >
+
+    <!-- <label >Company-id</label>
+    <input required type="text" class="form-control"  placeholder="category-Id" [(ngModel)]="couponList.company_id"  name="company-id"  > -->
+
+    <label >Category-Id</label>
+    <input required type="text" class="form-control"  placeholder="category-Id"  [(ngModel)]="couponList.categoryId" name="categoryId"  >
+
+    <label >Title</label>
+    <input   required type="text" class="form-control"  placeholder="title"  [(ngModel)]="couponList.title" name="title">
+    
+    <label >description </label>
+    <input  required type="text" class="form-control"   placeholder="description" [(ngModel)]="couponList.description" name="description" >
+     <br>
+     <label >start_date </label>
+     <input  required type="text" class="form-control"   placeholder="start_date "  [(ngModel)]="couponList.start_date" name="start_date">
+      <br>
+      <label >end_date </label>
+      <input  required type="text" class="form-control"   placeholder="end_date " [(ngModel)]="couponList.end_date" name="end_date" >
+       <br>
+       <label >amount </label>
+       <input  required type="text" class="form-control"   placeholder="amount " [(ngModel)]="couponList.amount" name="amount" >
+        <br>
+        <label >price </label>
+        <input  required type="text" class="form-control"   placeholder="price "  [(ngModel)]="couponList.price" name="price">
+         <br>
+         <label >image </label>
+         <input  required type="text" class="form-control"   placeholder="image " [(ngModel)]="couponList.image"  name="image" >
+          <br>
+    <button    class="btn btn-primary" (click)=" UpdateCoupon()"  >Update</button>
+</form>
+</div>
+</div>

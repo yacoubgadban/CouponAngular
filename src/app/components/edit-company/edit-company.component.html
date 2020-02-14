@@ -1,0 +1,32 @@
+<div ngClass="btnS" >
+  <button class="btn btn-primary" ngClass="btnS" [routerLink]="['/admin/caddcompany']" routerLinkActive="router-link-active">New Company</button>
+  <button class="btn btn-info" ngClass="btnS" [routerLink]="['/admin/CompanyList']" routerLinkActive="router-link-active"   >Companies List</button>
+  <button class="btn btn-danger" ngClass="btnS" [routerLink]="['/admin/DeleteCompany']" routerLinkActive="router-link-active"   >Delete Company</button>
+  <button class="btn btn-success" ngClass="btnS" [routerLink]="['/admin/UpdateCompany']" routerLinkActive="router-link-active"   >Update Company</button>
+  <img src="/assets/images/home.jpg" ngClass="homeBtn"  [routerLink]="['/admin']" routerLinkActive="router-link-active" >
+
+ </div>
+
+<div ngClass="add" #addNew>
+  <legend>Add new company</legend>
+  <div class="form-group">
+  <form #formInfo="ngForm" >
+
+    <label >Company id</label>
+    <input disabled required type="text" class="form-control"  placeholder="Company name"   [(ngModel)]="companylista.id" name="id">
+
+    <label >Company Name</label>
+    <input required type="text" class="form-control"  placeholder="Company name"   [(ngModel)]="companylista.name" name="name">
+
+    <label >Company Email</label>
+    <input   required type="text" class="form-control"  placeholder="Company email"[(ngModel)]="companylista.email" name="email">
+    
+    <label >Company Password</label>
+    <input  required type="text" class="form-control"   placeholder="Company password" [(ngModel)]="companylista.password" name="password">
+     <br>
+    <button    class="btn btn-success" (click)="UpdateCompanyF()" >update</button>
+</form>
+</div>
+</div>
+
+
