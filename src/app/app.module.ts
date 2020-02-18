@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -27,6 +27,12 @@ import { UpdateClientComponent } from './components/update-client/update-client.
 import { EditClientComponent } from './components/edit-client/edit-client.component';
 import { ClientListComponent } from './components/client-list/client-list.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ClientRegisterComponent } from './components/client-register/client-register.component';
+import { CompanyRegisterComponent } from './components/company-register/company-register.component';
+import { AddCategoryComponent } from './components/add-category/add-category.component';
+import { CategoryListComponent } from './components/category-list/category-list.component';
+import { DeleteCategoryComponent } from './components/delete-category/delete-category.component';
 
 
 @NgModule({
@@ -54,6 +60,12 @@ import { MainPageComponent } from './components/main-page/main-page.component';
     EditClientComponent,
     ClientListComponent,
     MainPageComponent,
+    RegisterComponent,
+    ClientRegisterComponent,
+    CompanyRegisterComponent,
+    AddCategoryComponent,
+    CategoryListComponent,
+    DeleteCategoryComponent,
     
     
    
@@ -62,8 +74,8 @@ import { MainPageComponent } from './components/main-page/main-page.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
-    
+    HttpClientModule,
+    ReactiveFormsModule
     
   ],
   providers: [],

@@ -1,0 +1,37 @@
+<div ngClass="btnS">
+  <button class="btn btn-primary" ngClass="btnS" [routerLink]="['/admin/addCategory']" routerLinkActive="router-link-active">Add New Category</button>
+  <button class="btn btn-info" ngClass="btnS" [routerLink]="['/admin/categoryList']" routerLinkActive="router-link-active"   >Category List</button>
+  <button class="btn btn-danger" ngClass="btnS" [routerLink]="['/admin/deleteCategory']" routerLinkActive="router-link-active"   >Delete Category</button>
+  <img src="/assets/images/home.jpg" ngClass="homeBtn"  [routerLink]="['/admin']" routerLinkActive="router-link-active" >
+
+</div>
+
+<div >
+  <form >
+    
+    <legend>Delete Category</legend>
+      <div class="container">
+          <div class="row col-md-6 col-md-offset-2 custyle">
+          <table class="table table-striped custab">
+          <thead>
+              <tr>
+                  <th>Id</th>
+                  <th>Name</th>
+                  
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor=" let c of category ">
+                  <td>{{c.id}} </td>
+                  <td>{{c.name}} </td>
+                  
+                  <td><button   type="submit" class="btn btn-danger"  (click)="deleteCategory(c.id)"   >delete</button ></td>
+                  </tr>
+          </tbody>
+          </table>
+          </div>
+      </div>
+  </form>
+  </div>
+
+  

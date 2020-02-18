@@ -9,11 +9,8 @@
   padding: 12px;
  
  }
-
-.couponTable{
  
 
-  }
 
 .search{
 
@@ -93,11 +90,9 @@ font-size:xx-large;
 
 
 .custab{
- position: relative;
- right: 25%;
   font-family: 'Raleway', sans-serif;
   border: 1px solid #ccc;
-  padding: 10px;
+  padding: 5px;
   margin: 10% 0;
   box-shadow: 3px 3px 2px #ccc;
   transition: 0.5s;
@@ -107,20 +102,14 @@ font-size:xx-large;
   transition: 0.5s;
   }
  
-  
- 
 
+ 
  
 
 
 .col-md-12 {
-width:100%;
+width: 62%;
 }
-
-
-
-
-
 
 
 
@@ -149,8 +138,7 @@ left:50%
 
 legend{
   font-family: 'Raleway', sans-serif;
-  color: red;
+  color: rgb(253, 91, 51);
 }
-
 
 

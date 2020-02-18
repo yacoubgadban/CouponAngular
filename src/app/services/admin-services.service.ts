@@ -53,7 +53,7 @@ return this.httpClient.get<ClientList[]>("http://localhost:8080/clients/getall")
     public UpdateCompany(companylista:CompanyListA):Observable<CompanyListA[]>{
       return this.httpClient.put<CompanyListA[]>("http://localhost:8080/companylist/update"+"/"+companylista.id,companylista,{withCredentials:false});
 
-      console.log(companylista.id)
+      
 }
 
 public UpdateClientHttp(clientList:ClientList):Observable<ClientList[]>{

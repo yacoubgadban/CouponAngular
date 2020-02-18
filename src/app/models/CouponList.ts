@@ -2,10 +2,10 @@ export class CouponList{
 
   public id:number;
   
- 
+  
   
   constructor(
-    public companyId?:number,
+    public companyId:any=localStorage.getItem("companyId"),
     public categoryId?:number,
     public title?:string,
     public description?:string,

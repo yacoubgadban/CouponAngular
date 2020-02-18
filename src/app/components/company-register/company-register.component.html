@@ -1,0 +1,91 @@
+
+<div class="card m-3">
+  <h5 class="card-header" ngClass="title">Register</h5>
+  <div class="card-body">
+    <br><br>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="form-row">
+            
+              <div class="form-group col-5">
+                  <label>Company Name</label>
+                  <input type="text" formControlName="Name" placeholder="Company name"   [(ngModel)]="companyListA.name" name="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Name.errors }" />
+                  <div *ngIf="submitted && f.Name.errors" class="invalid-feedback">
+                      <div *ngIf="f.Name.errors.required">Name is required</div>
+                  </div>
+              </div>
+              
+                      
+             
+          </div>
+          <div class="form-group">
+              <label>Email</label>
+              <input type="text" formControlName="email" placeholder="Company email"[(ngModel)]="companyListA.email" name="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.email.errors.required">Email is required</div>
+                  <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+              </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col">
+                  <label>Password</label>
+                  <input type="password" formControlName="password" placeholder="Company password" [(ngModel)]="companyListA.password" name="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                      <div *ngIf="f.password.errors.required">Password is required</div>
+                      <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                  </div>
+              </div>
+              <div class="form-group col">
+                  <label>Confirm Password</label>
+                  <input type="password" formControlName="confirmPassword" placeholder="Confirm password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                  <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                      <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                      <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                  </div>
+              </div>
+          </div>
+          
+         
+          <div class="text-center">
+              <button class="btn btn-primary mr-1" (click)="createCompany()" >Register</button>
+              <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+          </div>
+      </form>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- 
+<br><br>
+<h2 ngClass="t2">Company Register </h2>
+<br><br>
+<div >
+  
+  <div class="form-group">
+  <form #formInfo="ngForm" >
+
+    
+
+    <label >Company Name</label>
+    <input required type="text" class="form-control"  placeholder="Company name"   [(ngModel)]="companyListA.name" name="name">
+
+    <label >Company Email</label>
+    <input   required type="text" class="form-control"  placeholder="Company email"[(ngModel)]="companyListA.email" name="email">
+    
+    <label >Company Password</label>
+    <input  required type="password" class="form-control"   placeholder="Company password" [(ngModel)]="companyListA.password" name="password">
+   
+    <label >Confirm Password</label>
+    <input  required type="password" class="form-control"   placeholder="Confirm password" [(ngModel)]="confirm" name="confirm">
+     <br>
+    <button  ngClass="btnS"  class="btn btn-default" (click)="createCompany()" >Create</button>
+</form>
+</div>
+</div>
+ -->

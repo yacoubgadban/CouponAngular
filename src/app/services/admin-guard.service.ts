@@ -18,16 +18,21 @@ users:Users
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):boolean {
   
   
-  if(this.users.reso=true){
-    
+  if(this.loginService.isLoggedIn===true&&this.loginService.type==="Admin" ){
+    localStorage.setItem("admin","1")
+     
+  }
+  if(localStorage.getItem("admin")==="1"){
     return true;
-   }
    
-   else{
+  }
+   
+  
+ 
+  
     
 
-  return false;
-   }
+ 
   
   }
 }

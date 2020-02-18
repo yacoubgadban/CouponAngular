@@ -1,7 +1,7 @@
 
 export class Users {
 
-  public constructor(public reso?:boolean  ){}
+  public constructor(public isLoggedIn?:boolean ){}
 
 
 }

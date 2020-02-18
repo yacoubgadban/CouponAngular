@@ -1,8 +1,57 @@
-div{
-  font-family: 'Raleway', sans-serif;
- color: lightblue; 
- 
+
+
+.head{
+
+  position: relative;
+  bottom: 20px;
+  background-color: black;
 }
+
+
+button{
+  background-color: #8EE4AF;
+  border-radius: 15%;
+  
+ }
+
+
+
+ 
+h1{
+ 
+  position: relative;
+  text-align: center;
+    padding: 1.5%;
+    font-family: 'Raleway', sans-serif;
+    
+    color: #8EE4AF;
+   
+}
+
+
+button{
+  float: right;
+ position: relative;
+ bottom: 50px;
+ right: 30px;
+}
+
+
+
+.head{
+
+  position: relative;
+  bottom: 20px;
+
+}
+
+
+
+
+
+
+
+
 
 
 

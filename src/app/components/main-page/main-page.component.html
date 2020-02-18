@@ -1,28 +1,40 @@
 
-<img #webLogo src="/assets/images/coupons.png" alt="">
-<br>
+<a>
 
-<div ngClass="marque">
-  <marquee scrollamount="7"   direction="left"><img src="/assets/images/plane.png">
-    <img src="/assets/images/coupons.png"> <img src="/assets/images/coupons.png"><img src="/assets/images/coupons.png"></marquee>
-  
-</div>
+  <marquee behavior="alternate" direction="">
+    <img ngClass="logo" src="/assets/images/icons/java.jpg" alt=""> 
+    <a> <=> </a>
+  <img ngClass="logo" src="/assets/images/icons/logo.png" alt="">
+  <a> <=> </a>
+  <img ngClass="logo" src="/assets/images/icons/angular.jpg" alt="">
+  <a> <=> </a>
+  <img ngClass="logo" src="/assets/images/icons/spring.jpg" alt="">
+ 
+  </marquee>
+  <!-- <img ngClass="logo" src="/assets/images/icons/logo.png" alt="">
 
+<img  ngClass="webLogo" src="/assets/images/coupons.png" alt=""> -->
+  </a>
+
+<a ngClass="welcome">Welcome :</a><a ngClass="name">{{this.firstName}} {{this.lastName}}</a>
 
 
 <form >
-  <legend>Coupon List</legend>  
-
    
+  <legend></legend>
+  <img src="/assets/images/icons/sport.jpg" alt="">
 
 <div class="container">
-        <div class="row col-md-12 col-md-offset-2 custyle">
+          
+  <div class="row col-md-12 col-md-offset-2 custyle">
+    
         <table class="table table-striped custab">
-        <thead>
+         
+          <thead>
             <tr>
-                <th>Coupon Id</th>
-                <th>Company-Id</th>
-                <th>Category-Id</th>                 
+                <!-- <th>Coupon Id</th> -->
+                <!-- <th>Company-Id</th> -->
+                            
                 <th>Title</th>
                 <th>description</th>
                 <th>start_date</th>
@@ -34,11 +46,12 @@
         </thead>
         <tbody>
          
-    
+         
           <tr *ngFor=" let c of couponList ">
-                <td>{{c.id}} </td>
-                <td>{{c.companyId}} </td>
-                <td>{{c.categoryId}}</td>
+           
+                <!-- <td>{{c.id}} </td> -->
+                <!-- <td>{{c.companyId}} </td> -->
+               
                 <td>{{c.title}} </td>
                 <td>{{c.description}} </td>
                 <td>{{c.start_date}} </td>
@@ -48,13 +61,236 @@
                 <td>{{c.image}} </td>
                 
                 
-                  <button type="button" class="btn btn-success" ngClass="btnS">buy now</button>
+                  <button type="button" class="btn btn-success" ngClass="btnS"(click)="buyCoupon(c)">buy now</button>
                  
                 
                 </tr>
+                
+             
         </tbody>
         </table>
         </div>
     </div>
 </form>
 
+
+<form >
+  <legend></legend>  
+
+  <img src="/assets/images/icons/food.jpg" alt="">
+
+<div class="container">
+        <div class="row col-md-12 col-md-offset-2 custyle">
+        <table class="table table-striped custab">
+        <thead>
+            <tr>
+                <!-- <th>Coupon Id</th> -->
+                <!-- <th>Company-Id</th> -->
+                               
+                <th>Title</th>
+                <th>description</th>
+                <th>start_date</th>
+                <th>end_date</th>
+                <th>amount</th>
+                <th>price</th>
+                <th>image</th>
+            </tr>
+        </thead>
+        <tbody>
+         
+         
+          <tr *ngFor=" let c of couponList3 ">
+           
+                <!-- <td>{{c.id}} </td> -->
+                <!-- <td>{{c.companyId}} </td> -->
+               
+                <td>{{c.title}} </td>
+                <td>{{c.description}} </td>
+                <td>{{c.start_date}} </td>
+                <td>{{c.end_date}}</td>
+                <td>{{c.amount}} </td>
+                <td>{{c.price}} </td>
+                <td>{{c.image}} </td>
+                
+                
+                  <button type="button" class="btn btn-success" ngClass="btnS"(click)="buyCoupon(c)">buy now</button>
+                 
+                
+                </tr>
+                
+             
+        </tbody>
+        </table>
+        </div>
+    </div>
+  </form>
+
+
+
+
+  <form >
+    <legend></legend>  
+  
+    <img src="/assets/images/icons/kids.png" alt="">
+  
+  <div class="container">
+          <div class="row col-md-12 col-md-offset-2 custyle">
+          <table class="table table-striped custab">
+          <thead>
+              <tr>
+                  <!-- <th>Coupon Id</th> -->
+                  <!-- <th>Company-Id</th> -->
+                              
+                  <th>Title</th>
+                  <th>description</th>
+                  <th>start_date</th>
+                  <th>end_date</th>
+                  <th>amount</th>
+                  <th>price</th>
+                  <th>image</th>
+              </tr>
+          </thead>
+          <tbody>
+           
+           
+            <tr *ngFor=" let c of couponList4 ">
+             
+                  <!-- <td>{{c.id}} </td> -->
+                  <!-- <td>{{c.companyId}} </td> -->
+                  
+                  <td>{{c.title}} </td>
+                  <td>{{c.description}} </td>
+                  <td>{{c.start_date}} </td>
+                  <td>{{c.end_date}}</td>
+                  <td>{{c.amount}} </td>
+                  <td>{{c.price}} </td>
+                  <td>{{c.image}} </td>
+                  
+                  
+                    <button type="button" class="btn btn-success" ngClass="btnS"(click)="buyCoupon(c)">buy now</button>
+                   
+                  
+                  </tr>
+                  
+               
+          </tbody>
+          </table>
+          </div>
+      </div>
+  </form>
+
+
+
+
+
+
+
+
+  <form >
+    <legend></legend>  
+  
+    <img src="/assets/images/icons/home.jpeg" alt="">
+  
+  <div class="container">
+          <div class="row col-md-12 col-md-offset-2 custyle">
+          <table class="table table-striped custab">
+          <thead>
+              <tr>
+                  <!-- <th>Coupon Id</th> -->
+                  <!-- <th>Company-Id</th> -->
+                                
+                  <th>Title</th>
+                  <th>description</th>
+                  <th>start_date</th>
+                  <th>end_date</th>
+                  <th>amount</th>
+                  <th>price</th>
+                  <th>image</th>
+              </tr>
+          </thead>
+          <tbody>
+           
+           
+            <tr *ngFor=" let c of couponList5 ">
+             
+                  <!-- <td>{{c.id}} </td> -->
+                  <!-- <td>{{c.companyId}} </td> -->
+                 
+                  <td>{{c.title}} </td>
+                  <td>{{c.description}} </td>
+                  <td>{{c.start_date}} </td>
+                  <td>{{c.end_date}}</td>
+                  <td>{{c.amount}} </td>
+                  <td>{{c.price}} </td>
+                  <td>{{c.image}} </td>
+                  
+                  
+                    <button type="button" class="btn btn-success" ngClass="btnS"(click)="buyCoupon(c)">buy now</button>
+                   
+                  
+                  </tr>
+                  
+               
+          </tbody>
+          </table>
+          </div>
+      </div>
+  </form>
+
+
+
+
+
+
+
+
+  <form >
+    <legend></legend>  
+  
+    <img src="/assets/images/icons/travel.jpg" alt="">
+  
+  <div class="container">
+          <div class="row col-md-12 col-md-offset-2 custyle">
+          <table class="table table-striped custab">
+          <thead>
+              <tr>
+                  <!-- <th>Coupon Id</th> -->
+                  <!-- <th>Company-Id</th> -->
+                                   
+                  <th>Title</th>
+                  <th>description</th>
+                  <th>start_date</th>
+                  <th>end_date</th>
+                  <th>amount</th>
+                  <th>price</th>
+                  <th>image</th>
+              </tr>
+          </thead>
+          <tbody>
+           
+           
+            <tr *ngFor=" let c of couponList6">
+             
+                  <!-- <td>{{c.id}} </td> -->
+                  <!-- <td>{{c.companyId}} </td> -->
+                  
+                  <td>{{c.title}} </td>
+                  <td>{{c.description}} </td>
+                  <td>{{c.start_date}} </td>
+                  <td>{{c.end_date}}</td>
+                  <td>{{c.amount}} </td>
+                  <td>{{c.price}} </td>
+                  <td>{{c.image}} </td>
+                  
+                  
+                    <button type="button" class="btn btn-success" ngClass="btnS"(click)="buyCoupon(c)">buy now</button>
+                   
+                  
+                  </tr>
+                  
+               
+          </tbody>
+          </table>
+          </div>
+      </div>
+  </form>

@@ -146,37 +146,64 @@
   
   }
   
-  
+
   legend{
     
-    
+    margin-left: 15px;
     font-family: 'Raleway', sans-serif;
     color: red;
+    font-size: xx-large;
   }
   
-  #webLogo {
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
+  .webLogo {
+    position: relative;
+    left: 40%;
+   
+     width: 300px;
+     height: 250px;
   }
 
-  marquee{
-     
-   width: 100%;
 
-  }
+.logo{
+  width: 200px;
+  height: 100px;
+}
 
 
   img{
-    width: 200px;
-    height: 150px;
+  
+    width: 150px;
+    height: 100px;
+
   }
 
-.marque{
+.name{
+  
+  margin-left: 15px;
+  font-family: 'Raleway', sans-serif;
+  color: rgb(253, 91, 51);
+  font-size: large;
+  font-weight: bold;
 
-    
 }
 
+.welcome{
+
+  
+  margin-left: 15px;
+  font-family: 'Raleway', sans-serif;
+  color: #8EE4AF;
+  font-size: large;
+  font-weight: bold;
+
+
+}
+marquee{
+  position: relative;
+  bottom: 50px;
+color: aliceblue;
+
+}
 
 
 

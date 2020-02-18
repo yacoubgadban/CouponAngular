@@ -7,14 +7,14 @@ import { CouponList } from '../models/CouponList';
   providedIn: 'root'
 })
 export class CouponServiceService {
-couponList:CouponList;
+couponList=new CouponList();
 
   constructor(private http:HttpClient) { }
   
-  company_id:number=99;
+  
 
   public getCoupons():Observable<CouponList[]>{
-   return this.http.get<CouponList[]>("http://localhost:8080/coupon/company"+"/"+this.company_id);
+   return this.http.get<CouponList[]>("http://localhost:8080/coupon/company"+"/"+this.couponList.companyId);
  
   }
 

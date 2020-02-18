@@ -23,32 +23,44 @@ import { AdminGuardService } from './services/admin-guard.service';
 import { AdminServicesService } from './services/admin-services.service';
 import { LoginService } from './services/login.service';
 import { LoginResult } from './models/Users/LoginResult';
+import { ClientGuardService } from './services/client-guard.service';
+import { CompanyGuardService } from './services/company-guard.service';
+import { RegisterComponent } from './components/register/register.component';
+import { ClientRegisterComponent } from './components/client-register/client-register.component';
+import { CompanyRegisterComponent } from './components/company-register/company-register.component';
+import { AddCategoryComponent } from './components/add-category/add-category.component';
+import { DeleteCategoryComponent } from './components/delete-category/delete-category.component';
+import { CategoryListComponent } from './components/category-list/category-list.component';
 
 
 
 const routes: Routes = [
+{ path: 'register', component: RegisterComponent},
+{ path: 'clientreg', component: ClientRegisterComponent},
+{ path: 'companyreg', component: CompanyRegisterComponent},
 { path: 'login', component: LoginComponent },
-{ path: 'main', component: MainPageComponent ,canActivate:[] },
-{ path: '', component: LoginComponent },
-{ path: 'admin', component: AdminComponent},
-{ path: 'admin/caddcompany', component: CaddcompanyComponent },
-{ path: 'admin/CompanyList', component: CompanyListComponent },
-{ path: 'admin/DeleteCompany', component: DeleteCompanyComponent },
-{ path: 'admin/UpdateCompany/EditCompany', component: EditCompanyComponent },
-{ path: 'admin/UpdateCompany', component:UpdateCompanyComponent  },
-{ path: 'company', component:CompanyComponent  },
-{ path: 'company/AddCoupon', component:AddCouponComponent  },
-{ path: 'company/DeleteCoupon', component:DeleteCouponComponent  },
-{ path: 'company/UpdateCoupon', component:UpdateCouponComponent  },
-{ path: 'company/CouponList', component:CouponListComponent  },
-{ path: 'company/UpdateCoupon/EditCompany', component:EditCouponComponent  },
-{ path: 'admin/addClient', component:AddClientComponent  },
-{ path: 'admin/deleteClient', component:DeleteClientComponent  },
-{ path: 'admin/updateClient', component:UpdateClientComponent  },
-{ path: 'admin/updateClient/editClient', component:EditClientComponent  },
-{ path: 'admin/clientList', component:ClientListComponent }
-
-
+{ path: 'main', component: MainPageComponent ,canActivate:[ClientGuardService] },
+{ path: '', redirectTo:'/login' ,pathMatch:'full' },
+{ path: 'admin', component: AdminComponent ,canActivate:[AdminGuardService]},
+{ path: 'admin/caddcompany', component: CaddcompanyComponent ,canActivate:[AdminGuardService] },
+{ path: 'admin/CompanyList', component: CompanyListComponent,canActivate:[AdminGuardService] },
+{ path: 'admin/DeleteCompany', component: DeleteCompanyComponent ,canActivate:[AdminGuardService]},
+{ path: 'admin/UpdateCompany/EditCompany', component: EditCompanyComponent,canActivate:[AdminGuardService] },
+{ path: 'admin/UpdateCompany', component:UpdateCompanyComponent ,canActivate:[AdminGuardService] },
+{ path: 'company', component:CompanyComponent ,canActivate:[CompanyGuardService]  },
+{ path: 'company/AddCoupon', component:AddCouponComponent ,canActivate:[CompanyGuardService] },
+{ path: 'company/DeleteCoupon', component:DeleteCouponComponent ,canActivate:[CompanyGuardService] },
+{ path: 'company/UpdateCoupon', component:UpdateCouponComponent ,canActivate:[CompanyGuardService] },
+{ path: 'company/CouponList', component:CouponListComponent ,canActivate:[CompanyGuardService] },
+{ path: 'company/UpdateCoupon/EditCompany', component:EditCouponComponent ,canActivate:[CompanyGuardService] },
+{ path: 'admin/addClient', component:AddClientComponent ,canActivate:[AdminGuardService] },
+{ path: 'admin/deleteClient', component:DeleteClientComponent  ,canActivate:[AdminGuardService]},
+{ path: 'admin/updateClient', component:UpdateClientComponent ,canActivate:[AdminGuardService] },
+{ path: 'admin/updateClient/editClient', component:EditClientComponent ,canActivate:[AdminGuardService] },
+{ path: 'admin/clientList', component:ClientListComponent ,canActivate:[AdminGuardService]},
+{ path: 'admin/addCategory', component:AddCategoryComponent ,canActivate:[AdminGuardService] },
+{ path: 'admin/deleteCategory', component:DeleteCategoryComponent  ,canActivate:[AdminGuardService]},
+{ path: 'admin/categoryList', component:CategoryListComponent ,canActivate:[AdminGuardService]}
 
 ]
 ;
