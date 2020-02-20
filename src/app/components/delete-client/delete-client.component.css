@@ -129,3 +129,10 @@ legend{
 
 
 
+.logout{
+  background-color:#8EE4AF ;
+  float: right;
+  position: relative;
+  bottom: 100px;
+  right: 20px;
+}

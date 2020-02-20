@@ -4,6 +4,7 @@ import { CouponList } from 'src/app/models/CouponList';
 import { CouponServiceService } from 'src/app/services/coupon-service.service';
 import { Categories } from 'src/app/models/Categories';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-page',
@@ -13,7 +14,7 @@ import { Title } from '@angular/platform-browser';
 export class MainPageComponent implements OnInit {
 
   
-  constructor(private mainService:MainService,private service:CouponServiceService) { }
+  constructor(private mainService:MainService,private service:CouponServiceService,private router:Router) { }
   public couponList:CouponList[];
   public couponList2=new CouponList();
   public category:Categories[];
@@ -40,6 +41,14 @@ export class MainPageComponent implements OnInit {
   console.log(this.couponList)
 
   }
+  logOut(){
+    localStorage.removeItem("admin")
+    localStorage.removeItem("company")
+    localStorage.removeItem("client")
+    this.router.navigate(['login']);
+    
+  }
+
 
 getCouponByCategory(){
   

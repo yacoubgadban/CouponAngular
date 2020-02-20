@@ -18,7 +18,13 @@ export class EditClientComponent implements OnInit {
     this.clientList=this.adminService.getClient();
     console.log(this.clientList);
   }
-
+  logOut(){
+    localStorage.removeItem("admin")
+    localStorage.removeItem("company")
+    localStorage.removeItem("client")
+    this.router.navigate(['login']);
+    
+  }
   updateClient(){
     if(this.adminService.UpdateClientHttp(this.clientList).subscribe(clientList=>{clientList})){
      alert("Company updated success !")

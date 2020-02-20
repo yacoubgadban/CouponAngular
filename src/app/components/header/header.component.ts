@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HeaderService } from 'src/app/services/header.service';
+import { Time } from '@angular/common';
+import { timer, VirtualTimeScheduler } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -8,16 +11,28 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router ,private headService:HeaderService ) { }
 
-  ngOnInit() {
-  }
-  logOut(){
-    localStorage.removeItem("admin")
-    localStorage.removeItem("company")
-    localStorage.removeItem("client")
-  this.router.navigate(['login']);
+public  currentDate:Date;
+
+public currentTime:Time;
+
+
+ngOnInit()  {
+ 
+  
+
+
+  this.currentDate=new Date();
+  
+  
+ 
+
+ 
   
 }
+
+
+
 
 }

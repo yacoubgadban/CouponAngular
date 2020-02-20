@@ -17,7 +17,13 @@ export class EditCouponComponent implements OnInit {
     this.couponList=this.couponService.getCoupon();
   console.log(this.couponList);
   }
-
+  logOut(){
+    localStorage.removeItem("admin")
+    localStorage.removeItem("company")
+    localStorage.removeItem("client")
+    this.router.navigate(['login']);
+    
+  }
   UpdateCoupon(){
     if(this.couponService.UpdateCoupon(this.couponList).subscribe(couponList=>{couponList})){
      alert("Company updated success !")

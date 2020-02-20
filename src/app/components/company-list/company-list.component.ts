@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminServicesService } from 'src/app/services/admin-services.service';
 import { CompanyListA } from 'src/app/models/CompanyListA';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-company-list',
@@ -9,8 +10,9 @@ import { CompanyListA } from 'src/app/models/CompanyListA';
 })
 export class CompanyListComponent implements OnInit {
 
-  constructor(private adminService:AdminServicesService) { }
+  constructor(private adminService:AdminServicesService,private router:Router) { }
 
+  
   public companylista:CompanyListA[];
   ngOnInit() {
   
@@ -18,6 +20,12 @@ export class CompanyListComponent implements OnInit {
   
   }
 
-
+  logOut(){
+    localStorage.removeItem("admin")
+    localStorage.removeItem("company")
+    localStorage.removeItem("client")
+    this.router.navigate(['login']);
+    
+  }
 
 }

@@ -1,7 +1,15 @@
 
-img{
 
-  
+.logout{
+  background-color:#8EE4AF ;
+  float: right;
+  position: relative;
+  bottom: 100px;
+  right: 20px;
+}
+
+
+img{
 
   height: 400px;
   width: 600px;

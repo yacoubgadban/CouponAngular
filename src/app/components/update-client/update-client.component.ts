@@ -15,7 +15,13 @@ clientList:ClientList[];
   ngOnInit() {
   return this.service.GetClientList().subscribe((data)=>{this.clientList=data});
   }
-
+  logOut(){
+    localStorage.removeItem("admin")
+    localStorage.removeItem("company")
+    localStorage.removeItem("client")
+    this.router.navigate(['login']);
+    
+  }
 public goToEditClient(clientList){
 
   this.service.setClient(clientList);

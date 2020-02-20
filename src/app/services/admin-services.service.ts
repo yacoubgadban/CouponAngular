@@ -20,6 +20,10 @@ export class AdminServicesService {
 
   }
    
+public GetCompanyByEmail(email){
+  return this.httpClient.get<CompanyListA[]>("http://localhost:8080/companylist/get" +"/"+email);
+}
+
   public GetClientList():Observable<ClientList[]>{
 return this.httpClient.get<ClientList[]>("http://localhost:8080/clients/getall");
   }

@@ -16,7 +16,13 @@ export class DeleteCompanyComponent implements OnInit {
   ngOnInit() {
     this.adminService.GetCompanyList().subscribe(data=>{this.companylista=data});
   }
- 
+  logOut(){
+    localStorage.removeItem("admin")
+    localStorage.removeItem("company")
+    localStorage.removeItem("client")
+    this.router.navigate(['login']);
+    
+  }
   public deleteCompany(id:number){
    
     

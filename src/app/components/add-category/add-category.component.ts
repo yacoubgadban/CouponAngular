@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Categories } from 'src/app/models/Categories';
 import { CategoryService } from 'src/app/services/category.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-category',
@@ -9,12 +10,19 @@ import { CategoryService } from 'src/app/services/category.service';
 })
 export class AddCategoryComponent implements OnInit {
   public category=new Categories();
-  constructor(private service:CategoryService) { }
+  constructor(private service:CategoryService,private router:Router) { }
 
   
   ngOnInit() {
   
   
+  }
+  logOut(){
+    localStorage.removeItem("admin")
+    localStorage.removeItem("company")
+    localStorage.removeItem("client")
+    this.router.navigate(['login']);
+    
   }
 addCategory(){
   this.service.createCategory(this.category).subscribe((category=>{category}));

@@ -18,7 +18,13 @@ export class UpdateCouponComponent implements OnInit {
 
   }
 
- 
+  logOut(){
+    localStorage.removeItem("admin")
+    localStorage.removeItem("company")
+    localStorage.removeItem("client")
+    this.router.navigate(['login']);
+    
+  }
    
  
 public goToEditCoupon(couponList){
