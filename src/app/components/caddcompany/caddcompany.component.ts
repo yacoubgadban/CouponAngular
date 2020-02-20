@@ -13,7 +13,7 @@ export class CaddcompanyComponent implements OnInit {
 
   public companylista =new CompanyListA();
 companylista2:CompanyListA[];
-  
+companylista3:CompanyListA[];
   constructor(private service:AdminServicesService,private router:Router) { }
 
   
@@ -29,10 +29,23 @@ companylista2:CompanyListA[];
   
   CreateCompany(){
     
-    
-
+    this.service.name=this.companylista.name;
+    this.service.email=this.companylista.email;
    
-    this.service.CreateCompany(this.companylista).subscribe((companylista)=>{companylista},(err)=>{err=err})
+    this.service.GetCompanyByName(this.companylista.name).subscribe((data)=>{this.companylista2=data
+    this.service.GetCompanyByEmail(this.companylista.email).subscribe((data)=>{this.companylista3=data
+   
+    if(this.companylista2!=undefined || this.companylista3!=undefined){
+      alert("ERROR:this company email or name has already added !!!")
+    }else{
+      this.service.CreateCompany(this.companylista).subscribe((companylista)=>{companylista},(err)=>{err=err})
+      alert("Success:company has been added !")
+      window.location.reload()
+    }
+    
+      });
+   });
+    
  
  
 

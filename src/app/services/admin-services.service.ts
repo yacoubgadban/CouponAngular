@@ -14,6 +14,8 @@ export class AdminServicesService {
   constructor(private httpClient:HttpClient) { }
   companylista:CompanyListA;
   clientList:ClientList;
+  name:string;
+  email:string;
   public GetCompanyList():Observable<CompanyListA[]>{
 
   return this.httpClient.get<CompanyListA[]>("http://localhost:8080/companylist/getall");
@@ -21,7 +23,10 @@ export class AdminServicesService {
   }
    
 public GetCompanyByEmail(email){
-  return this.httpClient.get<CompanyListA[]>("http://localhost:8080/companylist/get" +"/"+email);
+  return this.httpClient.get<CompanyListA[]>("http://localhost:8080/companylist/byemail" +"/"+this.email);
+}
+public GetCompanyByName(name){
+  return this.httpClient.get<CompanyListA[]>("http://localhost:8080/companylist/byname" +"/"+this.name);
 }
 
   public GetClientList():Observable<ClientList[]>{

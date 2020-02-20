@@ -10,7 +10,7 @@ export class CategoryService {
 categories:Categories;
   constructor(private http:HttpClient) { }
 
-
+name:string;
 public getCategory():Observable<Categories[]>{
 
 return  this.http.get<Categories[]>("http://localhost:8080/category/getall");
@@ -30,7 +30,7 @@ public createCategory(categories:Categories):Observable<Categories[]>{
 
     public getCategoryByName(name):Observable<Categories>{
 
-      return  this.http.get<Categories>("http://localhost:8080/category/byname"+"/"+name);
+      return  this.http.get<Categories>("http://localhost:8080/category/byname"+"/"+localStorage.getItem("cateName"));
       }
 
       public getCategoryById(id):Observable<Categories>{

@@ -12,13 +12,15 @@ import { Router } from '@angular/router';
 export class EditCompanyComponent implements OnInit {
 
   public companylista =new CompanyListA();
-  companyLista2:CompanyListA[];
+ 
+  companylista3:CompanyListA[];
   constructor(private adminService:AdminServicesService,private router:Router) { }
 
   ngOnInit() {
   this.companylista=this.adminService.getter();
   this.oldName=this.companylista.name;
-
+   this.oldId=this.companylista.id;
+   this.oldEmail=this.companylista.email;
   }
   // public UpdateCompanyF(id:number){
   //   this.companylista.id=localStorage.getItem("id");
@@ -36,15 +38,28 @@ export class EditCompanyComponent implements OnInit {
   }
   oldId:any;
   oldName:string;
-  
+  oldEmail:string;
     UpdateCompanyF(){
-     this.oldId=this.companylista.id;
- if(this.companylista.name===this.oldName&&this.companylista.id===this.oldId){
- alert( "success !!" ),this.router.navigate(['admin/UpdateCompany']) ,this.adminService.UpdateCompany(this.companylista).subscribe(companylista=>{companylista}),((err)=>{alert("failed")});
+
+      this.adminService.name=this.companylista.name;
+      this.adminService.email=this.companylista.email;
+      
+    
+      this.adminService.GetCompanyByEmail(this.adminService.email).subscribe((data)=>{this.companylista3=data
+        console.log(this.companylista3)
+        if(this.companylista.name!=this.oldName||this.companylista.id!=this.oldId||this.companylista3!=undefined&&this.companylista3['email']!=this.oldEmail ){
+      alert("ERROR:this company email or name has already added !!!")
+    } else{
+      this.adminService.UpdateCompany(this.companylista).subscribe(companylista=>{companylista}),((err)=>{alert("failed")});
+      alert("Update Success  !")
+      this.router.navigate(['admin/UpdateCompany'])
+    }
+
+
+
+});
+
  
-} else{
-  alert("Error: can't change company name !!");
-}
 
 }
 }

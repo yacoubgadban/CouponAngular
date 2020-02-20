@@ -19,6 +19,9 @@ category2:Categories;
   }
   public deleteCategory(id:number){
     this.service.deleteCategory(id).subscribe((data)=>{this.category2=data});
+   
+    alert("success: category has been deleted!")
+    window.location.reload();
   }
 
   logOut(){
