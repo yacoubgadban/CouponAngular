@@ -12,6 +12,7 @@ export class AdminComponent implements OnInit {
   constructor(private router:Router) {}
 
   ngOnInit() {
+    console.log(localStorage.getItem("admin"))
   }
   logOut(){
     localStorage.removeItem("admin")

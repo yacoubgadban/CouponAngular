@@ -11,7 +11,7 @@ import { AdminInfo } from '../models/Users/AdminInfo';
   providedIn: 'root'
 })
 export class LoginService {
-public loginResult:LoginResult['email'];
+public loginResult:LoginResult;
 
 
   
@@ -21,23 +21,25 @@ public clientList=new ClientList();
 public companyListA=new CompanyListA();
 public adminInfo=new AdminInfo();
 isLoggedIn:boolean;
-
+email:string;
+password:string;
+Result:boolean;
 type:string;
 
 
-public loginClient(loginResult:LoginResult):Observable<ClientList[]>{
+public loginClient():Observable<ClientList[]>{
   
- return this.httpClient.get<ClientList[]>("http://localhost:8080//clients/get"+"/"+loginResult['email']);
+ return this.httpClient.get<ClientList[]>("http://localhost:8080//clients/byemail"+"/"+this.email);
 
 }
 
-public loginCompany(loginResult:LoginResult):Observable<CompanyListA[]>{
+public loginCompany():Observable<CompanyListA[]>{
 
-return this.httpClient.get<CompanyListA[]>("http://localhost:8080//companylist/get"+"/"+loginResult['email']);
+return this.httpClient.get<CompanyListA[]>("http://localhost:8080//companylist/byemail"+"/"+this.email);
 
 }
 
-public loginAdmin(loginResult:LoginResult):Observable<CompanyListA[]>{
+public loginAdmin():Observable<CompanyListA[]>{
 
   return this.httpClient.get<CompanyListA[]>("/assets/Json/adminServer.json");
 

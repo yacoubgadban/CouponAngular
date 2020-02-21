@@ -16,6 +16,7 @@ export class AdminServicesService {
   clientList:ClientList;
   name:string;
   email:string;
+  ClientEmail:string;
   public GetCompanyList():Observable<CompanyListA[]>{
 
   return this.httpClient.get<CompanyListA[]>("http://localhost:8080/companylist/getall");
@@ -32,6 +33,11 @@ public GetCompanyByName(name){
   public GetClientList():Observable<ClientList[]>{
 return this.httpClient.get<ClientList[]>("http://localhost:8080/clients/getall");
   }
+
+  public GetClientByEmail(clientEmail):Observable<ClientList[]>{
+    return this.httpClient.get<ClientList[]>("http://localhost:8080/clients/byemail"+"/"+this.ClientEmail);
+      }
+  
 
   public CreateCompany(companylista:CompanyListA):Observable<CompanyListA[]>{
   return this.httpClient.post<CompanyListA[]>("http://localhost:8080/companylist/add",companylista);

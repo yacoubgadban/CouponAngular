@@ -15,17 +15,23 @@ LoginResult:LoginResult[];
 users:Users
   public constructor(public loginService:LoginService , public router:Router ) { }
  
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):boolean {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot ):boolean {
   
-  
-  if(this.loginService.isLoggedIn===true&&this.loginService.type==="Admin" ){
-    localStorage.setItem("admin","1")
+    if(this.loginService.email==="admin@admin.com"
+       &&this.loginService.password==="admin"&&
+       this.loginService.type==="Admin"){
+       
+        localStorage.setItem("admin","1"); 
+        
+    }
+    if(localStorage.getItem("admin")==="1"){
+      
+
+      return true;
      
-  }
-  if(localStorage.getItem("admin")==="1"){
-    return true;
-   
-  }
+    }
+  
+  
    
   
  

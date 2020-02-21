@@ -8,6 +8,7 @@ import { CompanyListA } from 'src/app/models/CompanyListA';
 import { AdminInfo } from 'src/app/models/Users/AdminInfo';
 import { CouponServiceService } from 'src/app/services/coupon-service.service';
 import { HeaderService } from 'src/app/services/header.service';
+import { AdminGuardService } from 'src/app/services/admin-guard.service';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +17,9 @@ import { HeaderService } from 'src/app/services/header.service';
 })
 export class LoginComponent implements OnInit {
   
-  constructor(private router:Router ,private loginServices:LoginService 
-    ,private couponService:CouponServiceService ,private headService:HeaderService) { }
+  constructor(private router:Router ,private loginService:LoginService 
+    ,private couponService:CouponServiceService ,private headService:HeaderService
+    ,private adminGuard:AdminGuardService) { }
   
     
   ngOnInit() {
@@ -59,82 +61,47 @@ export class LoginComponent implements OnInit {
  
   com:number;
  
-  
- 
- 
+  result:boolean;
   AdminLog(){
-   
-   
-  this.loginServices.loginCompany(this.loginResult).subscribe((data)=>{this.companyListA=data
-
-
-
- 
-
-    this.loginServices.type=this.loginResult.type;
-if (this.companyListA['email']===this.loginResult.email&&this.companyListA['password']===this.loginResult.password){
-
-  this.couponService.couponList.companyId=this.companyListA['id'];
- localStorage.setItem("companyId",this.companyListA['id'])
- localStorage.setItem("companyName",this.companyListA['name'])
- this.users.isLoggedIn=true;
-this.loginServices.isLoggedIn=this.users.isLoggedIn
-this.router.navigate(['company'])
-
- 
-
-}
-
-});
-  
-
-this.loginServices.loginAdmin(this.loginResult).subscribe((data)=>{this.adminInfo=data
-  
-  
-    if  (this.adminInfo['email']===this.loginResult.email&&this.adminInfo['password']===this.loginResult.password){
-  this.loginServices.type=this.loginResult.type;
-  this.users.isLoggedIn=true;
-  this.loginServices.isLoggedIn=this.users.isLoggedIn
-  this.router.navigate(['admin'])
- 
-  }
-  
-
-});
-
-  this.loginServices.loginClient(this.loginResult).subscribe((data)=>{this.clientList=data
     
-    localStorage.setItem("firstName",this.clientList['firstName']);
-    localStorage.setItem("lastName",this.clientList['lastName']);
-  
-  
-  
-  
-    this.loginServices.type=this.loginResult.type;
-
-  if(this.clientList['email']===this.loginResult.email&&this.clientList['password']===this.loginResult.password){
- this.users.isLoggedIn=true;
- this.loginServices.isLoggedIn=this.users.isLoggedIn
- 
- this.router.navigate(['main'])
- 
-
-}
- 
-});
-
-
-
-}
-
-
-   
-
-
-
+    this.loginService.email=this.loginResult.email;
+    this.loginService.password=this.loginResult.password;
+    this.loginService.type=this.loginResult.type;
 
     
+   
+    
+     
+    
+        if(this.adminGuard.canActivate){
+      this.router.navigate(['/admin'])
+    }
 
+ 
+    this.loginService.loginCompany().subscribe((data)=>{this.companyListA=data
+     if(this.companyListA['email']===this.loginResult.email&&this.companyListA['password']===this.loginResult.password){
+      this.result=true;
+      this.loginService.Result=this.result;
+      this.couponService.couponList.companyId=this.companyListA['id'];
+  localStorage.setItem("companyId",this.companyListA['id'])
+  localStorage.setItem("companyName",this.companyListA['name'])
+    this.router.navigate(['/company'])
+    }
+  
+  });
+  this.loginService.loginClient().subscribe((data)=>{this.clientList=data
+    if(this.clientList['email']===this.loginResult.email&&this.clientList['password']===this.loginResult.password){
+    this.result=true;  
+    this.loginService.Result=this.result;
+
+    this.router.navigate(['/main'])
+    }
+  
+  });
+ }
+
+ 
+ 
 }
  
 
