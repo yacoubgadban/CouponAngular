@@ -10,7 +10,18 @@ import { CompanyListA } from '../models/CompanyListA';
 export class RegisterService {
 clintLIst:ClientList[];
 companyListA:CompanyListA[];
+name:string;
+  email:string;
   constructor(private httpClient:HttpClient) { }
+
+  public GetCompanyByEmail(email){
+    return this.httpClient.get<CompanyListA[]>("http://localhost:8080/companylist/byemail" +"/"+this.email);
+  }
+  public GetCompanyByName(name){
+    return this.httpClient.get<CompanyListA[]>("http://localhost:8080/companylist/byname" +"/"+this.name);
+  }
+  
+
 
   public CreateClient(clientList:ClientList):Observable<ClientList[]>{
     return this.httpClient.post<ClientList[]>("http://localhost:8080/clients/add",clientList);

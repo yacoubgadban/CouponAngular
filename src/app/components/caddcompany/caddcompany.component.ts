@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminServicesService } from 'src/app/services/admin-services.service';
 import { CompanyListA } from 'src/app/models/CompanyListA';
 import { Router } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-caddcompany',
@@ -14,10 +15,14 @@ export class CaddcompanyComponent implements OnInit {
   public companylista =new CompanyListA();
 companylista2:CompanyListA[];
 companylista3:CompanyListA[];
-  constructor(private service:AdminServicesService,private router:Router) { }
+  constructor(private service:AdminServicesService,private router:Router,private formBuilder: FormBuilder) { }
 
   
   ngOnInit() {
+
+
+
+    
   }                                                          
   logOut(){
     localStorage.removeItem("admin")

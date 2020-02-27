@@ -8,23 +8,51 @@
       <img src="/assets/images/user.png" id="icon" alt="User Icon" />
     </div>
 
+
     <!-- Login Form -->
-    <form>
-      <input type="text" id="login" class="fadeIn second" [(ngModel)]="loginResult.email" name="email" placeholder=" Email">
-      <input type="password" id="password" class="fadeIn third" [(ngModel)]="loginResult.password" name="password" placeholder="Password">
+    <form [formGroup]="loginForm" (ngSubmit)="AdminLog()">
+     
+      <div class="form-group">
+      <input type="text" id="login" formControlName="email" class="fadeIn second" [(ngModel)]="loginResult.email" name="email"
+       placeholder=" Email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+       <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div ngClass="valid" *ngIf="f.email.errors.required">Email is required</div>
+        <div ngClass="valid" *ngIf="f.email.errors.email">Email must be a valid email address</div>
+    </div>
+  </div>
+
+
+    <div class="form-group">
+      
+    <input type="password" id="password" formControlName="password" class="fadeIn third" [(ngModel)]="loginResult.password" name="password" 
+    placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+      <div ngClass="valid" *ngIf="f.password.errors.required">Password is required</div>
+      <div ngClass="valid" *ngIf="f.password.errors.minlength">Password must be at least 4 characters</div>
+  </div>
+</div>
     <br>
-    <p>Select Type</p> 
-    <select [(ngModel)]="loginResult.type" name="type"  >
-        
-        
+    
+    <p>Select Type</p>
+    <div class="form-group">
+    <select [(ngModel)]="loginResult.type" name="type" formControlName="type" 
+    [ngClass]="{ 'is-invalid': submitted && f.type.errors }">
+    
+ 
+
          <option selected disabled >Select Type</option>
           <option >Admin</option>
           <option >Company</option>
           <option >Client</option>      
-  
-      </select>
-      
+        </select>
+          <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+            <div ngClass="valid" *ngIf="f.type.errors.required">Type is required</div>
+            <div ngClass="valid" *ngIf="f.type.errors.email">Type must be a valid </div>
+          </div>
+         
+    </div>
       <br><br>
+      
       
     
     <input type="submit" value="Login" class="fadeIn fourth" (click)="AdminLog() ">

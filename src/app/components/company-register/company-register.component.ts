@@ -13,17 +13,18 @@ export class CompanyRegisterComponent implements OnInit {
 
   registerForm: FormGroup;
     submitted = false;
+    confirm:any;
   companyListA = new CompanyListA();
- 
+  companylista2:CompanyListA[];
+companylista3:CompanyListA[];
 constructor(private service:RegisterService ,private formBuilder: FormBuilder ,private router:Router) { }
-confirm:any;
+
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      title: ['', Validators.required],
+     
       Name: ['', Validators.required],
-      
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.minLength(4)]],
       confirmPassword: ['', Validators.required],
      
   }, {
@@ -34,16 +35,53 @@ confirm:any;
 // convenience getter for easy access to form fields
 get f() { return this.registerForm.controls; }
 
-onSubmit() {
-  this.submitted = true;
-
- 
-  if (this.registerForm.invalid) {
-      return;
-  }
+createCompany(){
+  
+   
 
   
-  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+  
+  
+  
+      this.submitted = true;
+ 
+     
+
+
+  if (this.registerForm.invalid) {
+   
+    return;
+
+  }
+  this.service.name=this.companyListA.name;
+    this.service.email=this.companyListA.email;
+    
+    this.service.GetCompanyByName(this.companyListA.name).subscribe((data)=>
+    {this.companylista2=data
+      this.service.GetCompanyByEmail(this.companyListA.email).subscribe((data)=>
+      {this.companylista3=data
+    
+        if(this.companylista2!=undefined || this.companylista3!=undefined){
+          alert("ERROR:this company email or name has already added !!!")
+
+         
+
+      
+        }
+        else{
+          alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+          this.service.CreateCompany(this.companyListA).subscribe((companyListA)=>{companyListA} );
+           this.router.navigate(['/login'])
+        
+        }
+      });
+    });
+ 
+ 
+  
+  
+  
+   
   
 }
 
@@ -73,13 +111,16 @@ onReset() {
     }
 }
 
-  createCompany(){
-   
-    this.service.CreateCompany(this.companyListA).subscribe((companyListA)=>{companyListA} );
+  
+    
+   checkEmail(){
     
    
+
+  
+   }
     
     
     }
-  }
+
 

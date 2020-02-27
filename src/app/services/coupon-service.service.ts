@@ -18,6 +18,11 @@ couponList=new CouponList();
  
   }
 
+  public getCouponsByTitle():Observable<CouponList[]>{
+    return this.http.get<CouponList[]>("http://localhost:8080/coupon/title"+"/"+this.couponList.companyId+"/"+this.couponList.title);
+  
+   }
+
 
   public CreateCoupon(couponList:CouponList):Observable<CouponList[]>{
 

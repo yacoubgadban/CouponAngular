@@ -5,6 +5,7 @@ import { CouponServiceService } from 'src/app/services/coupon-service.service';
 import { Categories } from 'src/app/models/Categories';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { ClientList } from 'src/app/models/ClientList';
 
 @Component({
   selector: 'app-main-page',
@@ -23,6 +24,7 @@ export class MainPageComponent implements OnInit {
   public couponList5:CouponList[];
   public couponList6:CouponList[];
   
+  client:ClientList[]
   firstName:string;
   lastName:string;
   ngOnInit() {
@@ -38,7 +40,6 @@ export class MainPageComponent implements OnInit {
   this.mainService.getCouponsByCategory(5).subscribe((couponList5)=>{this.couponList5=couponList5});
   this.mainService.getCouponsByCategory(6).subscribe((couponList6)=>{this.couponList6=couponList6});
   
-  console.log(this.couponList)
 
   }
   logOut(){
@@ -58,13 +59,12 @@ getCouponByCategory(){
 buyCoupon(couponList){
   
   this.couponList2=couponList;
-  this.mainService.UpdateCoupon(this.couponList2).subscribe((couponList)=>{couponList});
+  this.mainService.buyCoupon(this.couponList['id']).subscribe((couponList)=>{couponList});
+  localStorage.setItem("couponId",couponList['id'])
+  this.mainService.couponID=couponList['id'];  
+  this.mainService.clientID=localStorage.getItem("ClientId")
   
-     console.log(couponList);
-     console.log(couponList['amount']);
-     console.log(this.couponList2)
-     
-    alert("Purchase Success ! Thank you for purchase ")
+    
     
     
      window.location.reload();
