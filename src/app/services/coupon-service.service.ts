@@ -8,7 +8,7 @@ import { CouponList } from '../models/CouponList';
 })
 export class CouponServiceService {
 couponList=new CouponList();
-
+id:any;
   constructor(private http:HttpClient) { }
   
   
@@ -18,10 +18,9 @@ couponList=new CouponList();
  
   }
 
-  public getCouponsByTitle():Observable<CouponList[]>{
-    return this.http.get<CouponList[]>("http://localhost:8080/coupon/title"+"/"+this.couponList.companyId+"/"+this.couponList.title);
-  
-   }
+  public getCouponByCompanyId(id):Observable<CouponList[]>{
+    return this.http.get<CouponList[]>("http://localhost:8080/coupon/company"+"/"+this.id);
+  }
 
 
   public CreateCoupon(couponList:CouponList):Observable<CouponList[]>{
