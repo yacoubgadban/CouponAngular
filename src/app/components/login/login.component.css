@@ -1,35 +1,14 @@
-.page{
-  position: relative;
-  bottom: 50px;
-  
-
-}
-
-
-
-
-
-
-
 html {
-  background-color: #8EE4AF;
+  background-color: #56baed;
 }
 
 body {
   font-family: "Poppins", sans-serif;
   height: 100vh;
-  font-family: 'Raleway', sans-serif;
 }
 
 
-.btnS{
-  margin: 1px;
-  position: relative;
-  text-align: center;
-  font-family: 'Raleway', sans-serif;
-  color:rgb(253, 91, 51);
 
-}
 a {
   color: #92badd;
   display:inline-block;
@@ -45,8 +24,8 @@ h2 {
   display:inline-block;
   margin: 40px 8px 10px 8px; 
   color: #cccccc;
-  font-family: 'Raleway', sans-serif;
 }
+
 
 
 /* STRUCTURE */
@@ -59,9 +38,7 @@ h2 {
   width: 100%;
   min-height: 100%;
   padding: 20px;
-  font-family: 'Raleway', sans-serif;
 }
-
 
 #formContent {
   -webkit-border-radius: 10px 10px 10px 10px;
@@ -75,17 +52,15 @@ h2 {
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   text-align: center;
-  font-family: 'Raleway', sans-serif;
 }
 
 #formFooter {
-  background-color: #8EE4AF;
+  background-color: #f6f6f6;
   border-top: 1px solid #dce8f1;
   padding: 25px;
   text-align: center;
   -webkit-border-radius: 0 0 10px 10px;
   border-radius: 0 0 10px 10px;
-  font-family: 'Raleway', sans-serif;
 }
 
 
@@ -101,20 +76,20 @@ h2.active {
   border-bottom: 2px solid #5fbae9;
 }
 
+
+
 /* FORM TYPOGRAPHY*/
 
-
 input[type=button], input[type=submit], input[type=reset]  {
-  background-color: #e6e6ff;
+  background-color: #56baed;
   border: none;
-  color: rgb(253, 91, 51);
+  color: white;
   padding: 15px 80px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   text-transform: uppercase;
-  font-size: 13px ;
-  font-style: italic;
+  font-size: 13px;
   -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
   box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
   -webkit-border-radius: 5px 5px 5px 5px;
@@ -125,12 +100,10 @@ input[type=button], input[type=submit], input[type=reset]  {
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  font-family: 'Raleway', sans-serif;
 }
 
 input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
-  background-color: #8EE4AF;
-  font-family: 'Raleway', sans-serif;
+  background-color: #39ace7;
 }
 
 input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
@@ -139,11 +112,12 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   -o-transform: scale(0.95);
   -ms-transform: scale(0.95);
   transform: scale(0.95);
-  font-family: 'Raleway', sans-serif;
 }
 
+
+
 input[type=text],input[type=password] {
-  background-color: #8EE4AF;
+  background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
   padding: 15px 32px;
@@ -152,7 +126,9 @@ input[type=text],input[type=password] {
   display: inline-block;
   font-size: 16px;
   margin: 5px;
-  width: 85%;
+  width: 220%;
+  position: relative;
+  left: 50px;
   border: 2px solid #f6f6f6;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
@@ -161,18 +137,21 @@ input[type=text],input[type=password] {
   transition: all 0.5s ease-in-out;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
-  font-family: 'Raleway', sans-serif;
+
+
 }
+
 
 input[type=text]:focus {
   background-color: #fff;
   border-bottom: 2px solid #5fbae9;
-  font-family: 'Raleway', sans-serif;
+ 
 }
+
+
 
 input[type=text]:placeholder {
   color: #cccccc;
-  font-family: 'Raleway', sans-serif;
 }
 
 
@@ -188,7 +167,6 @@ input[type=text]:placeholder {
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
-
 
 @-webkit-keyframes fadeInDown {
   0% {
@@ -240,7 +218,6 @@ input[type=text]:placeholder {
   -webkit-animation-delay: 0.4s;
   -moz-animation-delay: 0.4s;
   animation-delay: 0.4s;
-  
 }
 
 .fadeIn.second {
@@ -260,7 +237,6 @@ input[type=text]:placeholder {
   -moz-animation-delay: 1s;
   animation-delay: 1s;
 }
-
 
 /* Simple CSS3 Fade-in Animation */
 .underlineHover:after {
@@ -291,27 +267,13 @@ input[type=text]:placeholder {
 } 
 
 #icon {
-  width:40%;
+  width:60%;
 }
 
-
-select{
-
-  font-size: 120%;
-
+.options{
+  position: relative;
+  left: 145px;
 }
-
-.valid{
-  font-size: small;
-}
-
-
-
-
-
-
-
-
 
 
 
