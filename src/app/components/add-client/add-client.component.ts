@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminServicesService } from 'src/app/services/admin-services.service';
 import { ClientList } from 'src/app/models/ClientList';
-import { CouponList } from 'src/app/models/CouponList';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-client',
@@ -12,12 +12,38 @@ import { Router } from '@angular/router';
 export class AddClientComponent implements OnInit {
 public clientList=new ClientList();
        clientList2:ClientList[];
-  constructor(private ClientService:AdminServicesService,private router:Router) { }
+       addClientForm: FormGroup;
+       submitted = false;
+       confirm:any;
+  constructor(private ClientService:AdminServicesService,private router:Router,private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+  
+    this.addClientForm = this.formBuilder.group({
+     
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(4)]],
+     
+     
+ 
+     
+  });
+  
   }
-
+  get f() { return this.addClientForm.controls; }
   public CreateClient(){
+    this.submitted = true;
+ 
+     
+
+
+    if (this.addClientForm.invalid) {
+     
+      return;
+  
+    }
    this.ClientService.ClientEmail=this.clientList.email;
    this.ClientService.GetClientByEmail(this.clientList.email).subscribe((data)=>{this.clientList2=data
 console.log(this.clientList2)
