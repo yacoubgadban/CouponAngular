@@ -12,23 +12,43 @@
 
 
 <div ngClass="add" >
+  
   <legend>Add new Client</legend>
   <div class="form-group">
-  <form #formInfo="ngForm" >
-
+    <form #formInfo="ngForm" [formGroup]="addClientForm" >
+    <div class="form-row">
     <label >First Name</label>
-    <input required type="text" class="form-control"  placeholder="Client firstName"  [(ngModel)]="clientList.firstName"  name="firstName">
-
+    <input required type="text" class="form-control"  formControlName="firstName" placeholder="Client firstName"  [(ngModel)]="clientList.firstName"  name="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+      <div *ngIf="f.firstName.errors.required">First Name is required</div>
+  </div>
+    </div>
+    <div class="form-row">
     <label >Last Name</label>
-    <input required type="text" class="form-control"  placeholder="Clients lastName" [(ngModel)]="clientList.lastName"  name="lastName">
-
+    <input required type="text" class="form-control" formControlName="lastName"  placeholder="Clients lastName" [(ngModel)]="clientList.lastName"  name="lastName"[ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+      <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+    </div>  
+  </div>
+  <div class="form-row">
     <label >Client Email</label>
-    <input   required type="text" class="form-control"  placeholder="Company email" [(ngModel)]="clientList.email" name="email">
-    
+    <input   required type="text" class="form-control"  placeholder="Company email" [(ngModel)]="clientList.email" formControlName="email" name="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+      <div *ngIf="f.email.errors.required">Email is required</div>
+      <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+  </div>
+</div>
+  <div class="form-row">
     <label >Client Password</label>
-    <input  required type="text" class="form-control"   placeholder="Company password" [(ngModel)]="clientList.password"  name="password">
-     <br>
+    <input  required type="text" class="form-control"   formControlName="password"  placeholder="Company password" [(ngModel)]="clientList.password"  name="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+      <div *ngIf="f.password.errors.required">Password is required</div>
+      <div *ngIf="f.password.errors.minlength">Password must be at least 4 characters</div>
+  </div> 
+</div>
+    <br>
     <button    class="btn btn-primary" (click)="CreateClient()" >Create</button>
 </form>
 </div>
 </div>
+
