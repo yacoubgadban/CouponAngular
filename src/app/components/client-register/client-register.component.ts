@@ -12,13 +12,13 @@ import { Router } from '@angular/router';
 export class ClientRegisterComponent implements OnInit {
 
   clientList=new ClientList();
-  registerForm: FormGroup;
+  ClientRegForm: FormGroup;
   submitted = false;
   
   constructor(private service:RegisterService ,private formBuilder: FormBuilder ,private router:Router) { }
 confirm:any;
   ngOnInit() {
-    this.registerForm = this.formBuilder.group({
+    this.ClientRegForm = this.formBuilder.group({
       title: ['', Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -32,23 +32,12 @@ confirm:any;
 }
 
 // convenience getter for easy access to form fields
-get f() { return this.registerForm.controls; }
+get f() { return this.ClientRegForm.controls; }
 
-onSubmit() {
-  this.submitted = true;
-
-  // stop here if form is invalid
-  if (this.registerForm.invalid) {
-      return;
-  }
-
-  // display form values on success
-  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
-}
 
 onReset() {
   this.submitted = false;
-  this.registerForm.reset();
+  this.ClientRegForm.reset();
 }
   
 
@@ -72,15 +61,21 @@ onReset() {
 }
 
   
-
-
 createClient(){
- 
+  this.submitted = true;
+
+  
+  if (this.ClientRegForm.invalid) {
+      return;
+  }
+
   this.service.CreateClient(this.clientList).subscribe((clientList)=>{clientList} );
-  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.ClientRegForm.value, null, 4));
 
   
   this.router.navigate(['/login'])
 }
+
+
 
 }
