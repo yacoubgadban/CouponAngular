@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminServicesService } from 'src/app/services/admin-services.service';
 import { CompanyListA } from 'src/app/models/CompanyListA';
 import { Router } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-caddcompany',
@@ -10,7 +10,9 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./caddcompany.component.css']
 })
 export class CaddcompanyComponent implements OnInit {
-
+  addCompanyForm: FormGroup;
+  submitted = false;
+  confirm:any;
 
   public companylista =new CompanyListA();
 companylista2:CompanyListA[];
@@ -20,10 +22,21 @@ companylista3:CompanyListA[];
   
   ngOnInit() {
 
+    this.addCompanyForm = this.formBuilder.group({
+     
+      Name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(4)]],
+      
+     
+ 
+     
+  });
 
-
-    
-  }                                                          
+  
+  }     
+  get f() { return this.addCompanyForm.controls; }
+  
   logOut(){
     localStorage.removeItem("admin")
     localStorage.removeItem("company")
@@ -33,7 +46,16 @@ companylista3:CompanyListA[];
   }
   
   CreateCompany(){
-    
+    this.submitted = true;
+ 
+     
+
+
+    if (this.addCompanyForm.invalid) {
+     
+      return;
+  
+    }
     this.service.name=this.companylista.name;
     this.service.email=this.companylista.email;
    
