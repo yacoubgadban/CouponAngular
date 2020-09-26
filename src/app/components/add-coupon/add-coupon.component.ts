@@ -3,9 +3,9 @@ import { CouponList } from 'src/app/models/CouponList';
 import { CouponServiceService } from 'src/app/services/coupon-service.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { error } from 'util';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
-import { HttpResponse } from '@angular/common/http';
+import { formatDate } from '@angular/common';
+
+
 
 @Component({
   selector: 'app-add-coupon',
@@ -19,11 +19,15 @@ export class AddCouponComponent implements OnInit {
   public couponList=new CouponList();
   i:any;
   public couponList2:CouponList[];
-  public currentDate:Date;
-  constructor(private service:CouponServiceService,private router:Router,private formBuilder: FormBuilder) { }
+  currentDate:Date ;
+  
+  constructor(private service:CouponServiceService,private router:Router,private formBuilder: FormBuilder ) { }
 
   ngOnInit() {
- this.currentDate=new Date();
+ 
+  this.currentDate =new Date; 
+    
+
  
  this.addCouponForm = this.formBuilder.group({
   
@@ -35,9 +39,13 @@ export class AddCouponComponent implements OnInit {
   amount: ['', Validators.required],
   price: ['', Validators.required],
  
-
- 
 });
+// setTimeout(() => {
+//   alert("Attention : \n"+
+//   " 1- you cant add coupons with same 'TiTLE' \n"
+//   +"2- star date can't be before current date\n"+
+//   "3- end date can't be before start date")
+// },500);
 
   }
   get f() { return this.addCouponForm.controls; }
@@ -49,34 +57,24 @@ export class AddCouponComponent implements OnInit {
     this.router.navigate(['login']);
     
   }
-
-public CreateCoupon(){
+  
+  public CreateCoupon(){
   this.submitted = true;
  
 
-  // if (this.addCouponForm.invalid) {
+  if (this.addCouponForm.invalid) {
    
-  //   return;
+    return;
 
-  // }
+  }
 
   this.service.couponList.companyId=this.couponList.companyId;
-  this.service.couponList.title=this.couponList.title;  
-  this.service.getCouponsByTitle().subscribe((data)=>{this.couponList2=data
-    
-    
-    
-    
-    
-  
-  
-  this.service.CreateCoupon(this.couponList).subscribe((couponList=>{couponList}))
-  ,((err)=>{alert(err)});
-  alert(HttpResponse)
 
-});
-  // window.location.reload();
-}
+  
+  
+  this.service.CreateCoupon(this.couponList).subscribe((couponList=>{couponList }));
+  
+   }
 
 
 }
