@@ -63,6 +63,16 @@ button{
 
 }
 
+.headerImg{
+  position: relative;
+  right: 5px;
+  bottom: 10px;
+  width: 200px;
+height: 150px;
+}
+
+
+
 
 
 
