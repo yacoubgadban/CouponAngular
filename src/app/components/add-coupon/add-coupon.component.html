@@ -13,16 +13,26 @@
 <div ngClass="add" #addNewc>
   <legend>Add new company</legend>
   <div class="form-group">
-  <form #formInfo="ngForm"  [formGroup]="addCouponForm" (ngSubmit)="CreateCoupon()">
+  <form #formInfo="ngForm"  [formGroup]="addCouponForm" >
 
     <!-- <label >Company-id</label>
     <input required type="text" class="form-control"  placeholder="category-Id" [(ngModel)]="couponList.company_id"  name="company-id"  > -->
+    <div class="table5">
+      <h4>1-sport</h4>
+      <h4>2-food</h4>
+      <h4>3-kids</h4>
+      <h4>4-home&garden</h4>
+      <h4>5-travel</h4>
+    </div>
+    <div class="catego">
     <div class="form-group col">
+      
     <label >Category-Id</label> 
+   
     <input required type="text" formControlName="categoryId" class="form-control"  placeholder="category-Id"  [(ngModel)]="couponList.categoryId" name="categoryId" [ngClass]="{ 'is-invalid': submitted && f.categoryId.errors }" >
     <div *ngIf="submitted && f.categoryId.errors" class="invalid-feedback">
       <div *ngIf="f.categoryId.errors.required">categoryId is required</div>
-      
+     
   </div>
 </div>
 <div class="form-group col"> 
@@ -44,7 +54,7 @@
     <br>
     <div class="form-group col">
     <label >start_date </label>
-     <input  required type="date" class="form-control" formControlName="start_date" value="{{currentDate |date:'dd/MM/yyyy' }}"  placeholder="start_date"  [(ngModel)]="couponList.start_date" name="start_date"[ngClass]="{ 'is-invalid': submitted && f.start_date.errors }">
+     <input  required type="date" class="form-control"  formControlName="start_date"   placeholder="start_date"  [(ngModel)]="couponList.start_date" name="start_date"[ngClass]="{ 'is-invalid': submitted && f.start_date.errors }">
      <div *ngIf="submitted && f.start_date.errors" class="invalid-feedback">
       <div *ngIf="f.start_date.errors.required">start date is required</div>
       
@@ -53,7 +63,7 @@
      <br>
      <div class="form-group col">
      <label >end_date </label>
-    <input  required type="date"  class="form-control" formControlName="end_date"  placeholder="end_date " [(ngModel)]="couponList.end_date" name="end_date"[ngClass]="{ 'is-invalid': submitted && f.end_date.errors }" >
+    <input  required type="date"   class="form-control"  formControlName="end_date"  placeholder="end_date " [(ngModel)]="couponList.end_date " name="end_date"[ngClass]="{ 'is-invalid': submitted && f.end_date.errors }" >
     <div *ngIf="submitted && f.end_date.errors" class="invalid-feedback">
       <div *ngIf="f.end_date.errors.required">end date is required</div>
       
@@ -63,20 +73,20 @@
     <div class="form-group col">   
     <label >amount </label>
        <input  required type="number" class="form-control" formControlName="amount"  placeholder="amount " [(ngModel)]="couponList.amount" name="amount"[ngClass]="{ 'is-invalid': submitted && f.amount.errors }" >
-       <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+       <!-- <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
         <div *ngIf="f.amount.errors.required">amount is required</div>
         
-    </div>
+    </div> -->
   </div>
        <br>
        <div class="form-group col">
        <label >price </label>
         <input  required type="number" class="form-control" formControlName="price"  placeholder="price "  [(ngModel)]="couponList.price" name="price" [ngClass]="{ 'is-invalid': submitted && f.price.errors }">
-        <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
-          <div *ngIf="f.price.errors.required">price is required</div>
+        <!-- <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+          <div *ngIf="f.price.errors.required">price is required</div> -->
           
       </div>
-    </div>
+    <!-- </div> -->
         <br>
          <label >image </label>
          
@@ -86,6 +96,7 @@
          <input  required type="text" class="form-control"   placeholder="image " [(ngModel)]="couponList.image"  name="image" >
           <br>
     <button    class="btn btn-primary" (click)="CreateCoupon()" >Create</button>
+  </div>
 </form>
 </div>
 </div>
