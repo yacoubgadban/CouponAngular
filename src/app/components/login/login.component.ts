@@ -58,6 +58,7 @@ export class LoginComponent implements OnInit {
   public companyListA:CompanyListA[];
   
   public adminInfo:AdminInfo[];
+  
   public loginResult=new LoginResult();
   
 
@@ -71,10 +72,11 @@ export class LoginComponent implements OnInit {
   com:number;
  
   result:boolean;
+  
+  
   AdminLog(){
+
     this.submitted = true;
- 
-     
 
 
   if (this.loginForm.invalid) {
@@ -86,9 +88,6 @@ export class LoginComponent implements OnInit {
     this.loginService.email=this.loginResult.email;
     this.loginService.password=this.loginResult.password;
     this.loginService.type=this.loginResult.type;
-
-    
-   
     
      
     
@@ -103,20 +102,20 @@ export class LoginComponent implements OnInit {
       this.result=true;
       this.loginService.Result=this.result;
       this.couponService.couponList.companyId=this.companyListA['id'];
-  localStorage.setItem("companyId",this.companyListA['id'])
-  localStorage.setItem("companyName",this.companyListA['name'])
-    this.router.navigate(['/company'])
+      localStorage.setItem("companyId",this.companyListA['id'])
+      localStorage.setItem("companyName",this.companyListA['name'])
+      this.router.navigate(['/company'])
     }
   
   });
-  this.loginService.loginClient().subscribe((data)=>{this.clientList=data
+    this.loginService.loginClient().subscribe((data)=>{this.clientList=data
     if(this.clientList['email']===this.loginResult.email&&this.clientList['password']===this.loginResult.password){
     this.result=true;  
     this.loginService.Result=this.result;
-   localStorage.setItem("ClientId",this.clientList['id'])
-   localStorage.setItem("firstName",this.clientList['firstName']) 
-   localStorage.setItem("lastName",this.clientList['lastName'])
-   this.router.navigate(['/main'])
+    localStorage.setItem("ClientId",this.clientList['id'])
+    localStorage.setItem("firstName",this.clientList['firstName']) 
+    localStorage.setItem("lastName",this.clientList['lastName'])
+    this.router.navigate(['/main'])
     }
   
   });
