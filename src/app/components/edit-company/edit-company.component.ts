@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CompanyListA } from 'src/app/models/CompanyListA';
 import { AdminServicesService } from 'src/app/services/admin-services.service';
 import { Router } from '@angular/router';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 
 @Component({
@@ -10,17 +11,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./edit-company.component.css']
 })
 export class EditCompanyComponent implements OnInit {
-
+  
   public companylista =new CompanyListA();
  
   companylista3:CompanyListA[];
+  submitted = false;
+  confirm:any;
+  
   constructor(private adminService:AdminServicesService,private router:Router) { }
 
   ngOnInit() {
+    
   this.companylista=this.adminService.getter();
+  
   this.oldName=this.companylista.name;
    this.oldId=this.companylista.id;
    this.oldEmail=this.companylista.email;
+  
+  
+   this
+  
+  
   }
   // public UpdateCompanyF(id:number){
   //   this.companylista.id=localStorage.getItem("id");
@@ -28,7 +39,7 @@ export class EditCompanyComponent implements OnInit {
   //  this.adminService.GetCompanyId(+this.companylista.id).subscribe(data=>{data=this.companylista;});
   //   console.log(this.companylista.id,this.companylista);
   //   }
-
+  
   logOut(){
     localStorage.removeItem("admin")
     localStorage.removeItem("company")
@@ -40,7 +51,12 @@ export class EditCompanyComponent implements OnInit {
   oldName:string;
   oldEmail:string;
     UpdateCompanyF(){
+      this.submitted = true;
+ 
+     
 
+
+      
       this.adminService.name=this.companylista.name;
       this.adminService.email=this.companylista.email;
       
