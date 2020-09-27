@@ -6,14 +6,14 @@
     <!-- Icon -->
     <div class="fadeIn first">
       <img src="/assets/images/user.png" id="icon" alt="User Icon" />
-    </div>
-
+    
+<br>
 
     <!-- Login Form -->
     <form [formGroup]="loginForm" (ngSubmit)="AdminLog()">
      
       <div class="form-group">
-      <input type="text" id="login" formControlName="email" class="fadeIn second" [(ngModel)]="loginResult.email" name="email"
+      <input type="text" ngClass="login" formControlName="email" class="fadeIn second" [(ngModel)]="loginResult.email" name="email"
        placeholder=" Email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
         <div ngClass="valid" *ngIf="f.email.errors.required">Email is required</div>
@@ -22,9 +22,10 @@
   </div>
 
 
+
     <div class="form-group">
       
-    <input type="password" id="password" formControlName="password" class="fadeIn third" [(ngModel)]="loginResult.password" name="password" 
+    <input type="password"  ngClass="password" formControlName="password" class="fadeIn third" [(ngModel)]="loginResult.password" name="password" 
     placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
     <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
       <div ngClass="valid" *ngIf="f.password.errors.required">Password is required</div>
@@ -32,15 +33,16 @@
   </div>
 </div>
     <br>
-    
+   
     <p>Select Type</p>
+ <div ngClass="options">
+
     <div class="form-group">
     <select [(ngModel)]="loginResult.type" name="type" formControlName="type" 
     [ngClass]="{ 'is-invalid': submitted && f.type.errors }">
     
- 
-
-         <option selected disabled >Select Type</option>
+ <br>
+         <option selected disabled   >Select Type</option>
           <option >Admin</option>
           <option >Company</option>
           <option >Client</option>      
@@ -51,6 +53,7 @@
           </div>
          
     </div>
+  </div>
       <br><br>
       
       
@@ -61,4 +64,4 @@
    <button ngClass="btnS" class="btn btn-default" [routerLink]="['/register']" routerLinkActive="router-link-active"  >Register Now</button>
   </div>
 </div>
-</div>
+</div></div>
