@@ -10,26 +10,39 @@
 
  </div>
 
-<div ngClass="add" #addNew>
-  <legend>Edit and update company</legend>
+<div ngClass="add" >
+  <legend>Add new company</legend>
   <div class="form-group">
-  <form #formInfo="ngForm" >
-
+  <form #formInfo="ngForm">
+    
     <label >Company id</label>
     <input disabled required type="text" class="form-control"  placeholder="Company name"   [(ngModel)]="companylista.id" name="id">
 
-    <label >Company Name</label>
-    <input  type="text" class="form-control"  placeholder="Company name"   [(ngModel)]="companylista.name" name="name">
-
-    <label >Company Email</label>
-    <input   required type="text" class="form-control"  placeholder="Company email"[(ngModel)]="companylista.email" name="email">
+    <div class="form-row">
+   <label >Company Name</label>
+    <input required type="text" class="form-control"   placeholder="Company name"   [(ngModel)]="companylista.name" name="name" >
     
-    <label >Company Password</label>
-    <input  required type="text" class="form-control"   placeholder="Company password" [(ngModel)]="companylista.password" name="password">
-     <br>
-    <button    class="btn btn-success" (click)="UpdateCompanyF()" >update</button>
-</form>
-</div>
 </div>
 
+<div class="form-row">
+ 
+    <label >Company Email</label>
+    <input   required type="text" class="form-control"  placeholder="Company email" [(ngModel)]="companylista.email" name="email" >
+   
+      
+</div>
+
+<div class="form-row">
+ 
+    <label >Company Password</label>
+    <input  required type="text" class="form-control"   placeholder="Company password" [(ngModel)]="companylista.password" name="password" >
+    
+     
+  </div>
+
+    <br>
+    <button    class="btn btn-primary" (click)="UpdateCompanyF()" >Create</button>
+  </form>
+</div>
+</div>
 
