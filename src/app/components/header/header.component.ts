@@ -10,25 +10,15 @@ import { timer, VirtualTimeScheduler } from 'rxjs';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+currentDate:Date;
   constructor(private router:Router ,private headService:HeaderService ) { }
 
-public  currentDate:Date;
 
-public currentTime:Time;
 
 
 ngOnInit()  {
  
-  
-
-
-  this.currentDate=new Date();
-  
-  
- 
-
- 
+this.currentDate=new Date();
   
 }
 
