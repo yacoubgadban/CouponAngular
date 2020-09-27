@@ -1,44 +1,56 @@
 <button ngClass="logout" type="button" name="logout" class="btn btn-default"(click)="logOut()">Logout</button>
 
 <div ngClass="btnS" >
-  <button class="btn btn-primary" ngClass="btnS" [routerLink]="['/admin/addClient']" routerLinkActive="router-link-active">Add New Client</button>
-  <button class="btn btn-info" ngClass="btnS" [routerLink]="['/admin/clientList']" routerLinkActive="router-link-active"   >Clients List</button>
-  <button class="btn btn-danger" ngClass="btnS" [routerLink]="['/admin/deleteClient']" routerLinkActive="router-link-active"   >Delete Client</button>
-  <button class="btn btn-success" ngClass="btnS" [routerLink]="['/admin/updateClient']" routerLinkActive="router-link-active"   >Update Client</button>
-  <img src="/assets/images/home.jpg" ngClass="homeBtn"  [routerLink]="['/admin']" routerLinkActive="router-link-active" >
+  <button class="btn btn-primary" ngClass="btnS" [routerLink]="['/company/AddCoupon']" routerLinkActive="router-link-active">New Coupon</button>
+  <button class="btn btn-info" ngClass="btnS" [routerLink]="['/company/CouponList']" routerLinkActive="router-link-active"    >Coupons List</button>
+  <button class="btn btn-danger" ngClass="btnS" [routerLink]="['/company/DeleteCoupon']" routerLinkActive="router-link-active"   >Delete Coupon</button>
+  <button class="btn btn-success" ngClass="btnS" [routerLink]="['/company/UpdateCoupon']" routerLinkActive="router-link-active"   >Update Coupon</button>
+  <img src="/assets/images/home.jpg" ngClass="homeBtn"  [routerLink]="['/company']" routerLinkActive="router-link-active" >
 
 </div>
 
 
 
-<div >
   <form >
-    <legend>Client List</legend>
+    <legend>Coupon List</legend>
 
-   
-    <div class="container">
-          <div class="row col-md-6 col-md-offset-2 custyle">
+     
+ 
+<div class="container">
+          <div class="row col-md-12 col-md-offset-2 custyle">
           <table class="table table-striped custab">
           <thead>
               <tr>
                   <th>Id</th>
-                  <th>FirstName</th>
-                  <th>LastName</th>
-                  <th>Email</th>
-                  <th>PASSWORD</th>
+                  <th>Company-Id</th>
+                  <th>Category-Id</th>                 
+                  <th>Title</th>
+                  <th>description</th>
+                  <th>start_date</th>
+                  <th>end_date</th>
+                  <th>amount</th>
+                  <th>price</th>
+                  <th>image</th>
               </tr>
           </thead>
           <tbody>
-              <tr *ngFor=" let c of clientList ">
+           
+      
+            <tr *ngFor=" let c of couponList ">
                   <td>{{c.id}} </td>
-                  <td>{{c.firstName}} </td>
-                  <td>{{c.lastName}} </td>
-                  <td>{{c.email}}</td>
-                  <td>{{c.password}} </td>
+                  <td>{{c.companyId}} </td>
+                  <td>{{c.categoryId}}</td>
+                  <td>{{c.title}} </td>
+                  <td>{{c.description}} </td>
+                  <td>{{c.start_date}} </td>
+                  <td>{{c.end_date}}</td>
+                  <td>{{c.amount}} </td>
+                  <td>{{c.price}} </td>
+                  <td>{{c.image}} </td>
                   </tr>
           </tbody>
           </table>
           </div>
       </div>
   </form>
-  </div>
+ 
