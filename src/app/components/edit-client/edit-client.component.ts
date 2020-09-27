@@ -13,6 +13,7 @@ export class EditClientComponent implements OnInit {
   public clientList =new ClientList();
   clientList2:ClientList[];
   oldEmail:string;
+  
   constructor(private adminService:AdminServicesService,private router:Router) { }
 
   ngOnInit() {
