@@ -19,13 +19,14 @@ export class CouponListComponent implements OnInit {
 
 
   ngOnInit() {
-    
-   this.couponService.getCoupons().subscribe((data)=>{this.couponList=data});
-    
-    
+    this.couponService.id=localStorage.getItem("companyId");
+   this.couponService.getCouponByCompanyId(localStorage.getItem("companyId"))
+   .subscribe((data)=>{this.couponList=data
+    console.log(this.couponList)
+  });
     }
 
-
+    
     logOut(){
       localStorage.removeItem("admin")
       localStorage.removeItem("company")
